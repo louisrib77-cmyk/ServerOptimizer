@@ -1,0 +1,46 @@
+# ServerOptimizer – Konfiguration
+# Nachrichten nutzen MiniMessage (https://docs.advntr.dev/minimessage/format.html)
+
+item-cleaner:
+  enabled: true
+  # Alle X Sekunden werden herumliegende Items entfernt
+  interval-seconds: 300
+  # Items müssen mindestens so lange auf dem Boden liegen (Sekunden), sonst bleiben sie
+  min-age-seconds: 30
+  # Countdown-Warnungen (verbleibende Sekunden)
+  warn-at-seconds: [60, 30, 10, 5]
+  # Diese Items werden NIE entfernt
+  keep-items:
+    - NETHERITE_INGOT
+    - NETHERITE_SCRAP
+    - NETHER_STAR
+    - ELYTRA
+    - DRAGON_EGG
+    - TOTEM_OF_UNDYING
+    - BEACON
+
+mob-limiter:
+  enabled: true
+  # Wie oft die Chunks geprüft werden
+  interval-seconds: 30
+  # Maximale Anzahl PRO MOB-TYP und PRO CHUNK. Überschüssige (älteste zuerst) werden entfernt.
+  # Benannte, gezähmte, angeleinte, gesattelte Tiere und Mobs mit Passagieren/Reittier sind geschützt.
+  max-animals-per-type-per-chunk: 24
+  max-monsters-per-type-per-chunk: 20
+
+# Senkt die Simulation Distance automatisch bei niedriger TPS und erhöht sie wieder, wenn es besser läuft
+dynamic-simulation-distance:
+  enabled: false
+  check-interval-seconds: 15
+  min-distance: 4
+  max-distance: 10
+  lower-below-tps: 17.0
+  raise-above-tps: 19.5
+
+messages:
+  prefix: "<gradient:#55ff55:#00aa00>[Optimizer]</gradient> <gray>"
+  item-warning: "{prefix}Bodenitems werden in <yellow>{seconds}</yellow> Sekunden entfernt!"
+  item-cleared: "{prefix}<yellow>{count}</yellow> Items vom Boden entfernt."
+  no-permission: "<red>Dazu hast du keine Berechtigung."
+  reloaded: "{prefix}Konfiguration neu geladen."
+  limit-done: "{prefix}<yellow>{count}</yellow> überschüssige Mobs entfernt."

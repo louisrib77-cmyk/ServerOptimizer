@@ -1,0 +1,16 @@
+name: ServerOptimizer
+version: '${version}'
+main: de.louis.optimizer.OptimizerPlugin
+api-version: '26.2'
+description: Leichtgewichtiges Optimierungs-Plugin (Item-Cleaner, Mob-Limiter, dynamische Simulation Distance)
+author: Louis
+commands:
+  optimizer:
+    description: Server-Optimizer Befehle
+    usage: /<command> <status|clear|limit|reload>
+    aliases: [opt]
+    permission: optimizer.admin
+permissions:
+  optimizer.admin:
+    description: Zugriff auf alle Optimizer-Befehle
+    default: op
